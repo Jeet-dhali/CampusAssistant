@@ -4,7 +4,7 @@ import OpenAI from "openai";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { OPENAI_API_KEY } from "./apiKey.js";
+import { OPENAI_API_KEY } from "./src/backend/apiKey.js";
 
 dotenv.config();
 
