@@ -1,0 +1,2 @@
+export const OPENAI_API_KEY = "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";
+export const PORT = 5000;
