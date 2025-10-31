@@ -1,2 +1,54 @@
-[]
+{
+  "faculty": [
+    {
+      "course_code": "SH1901",
+      "course_title": "Professional English",
+      "faculty_group_1": "Dr. Rosaline Jamir",
+      "faculty_group_2": "Dr. Wati Walling"
+    },
+    {
+      "course_code": "SH1101",
+      "course_title": "Engineering Chemistry",
+      "faculty_group_1": "Dr. Amrit Puzari",
+      "faculty_group_2": "Dr. Jhimli Bhattacharyya"
+    },
+    {
+      "course_code": "SH1102",
+      "course_title": "Engineering Physics",
+      "faculty_group_1": "Dr. P. P. Mishra",
+      "faculty_group_2": "Dr. Manoj K. Patel"
+    },
+    {
+      "course_code": "CS1102",
+      "course_title": "Introduction to Computer Programming",
+      "faculty_group_1": "Dr. J. Arul Valan",
+      "faculty_group_2": "Dr. J. Arul Valan"
+    },
+    {
+      "course_code": "CE1201",
+      "course_title": "Engineering Graphics",
+      "faculty_group_1": "Dr. V. Guru Prathap Reddy",
+      "faculty_group_2": "Dr. Dinesh Sing Das"
+    },
+    {
+      "course_code": "SH1103",
+      "course_title": "Engineering Chemistry Laboratory",
+      "faculty_group_1": "Dr. Amrit Puzari",
+      "faculty_group_2": "Dr. Jhimli Bhattacharyya"
+    },
+    {
+      "course_code": "ME1201",
+      "course_title": "Engineering Workshop",
+      "faculty_group_1": "Dr. Shambhu Kumar Mahato",
+      "faculty_group_2": "Dr. Amit Kumar Singh"
+    },
+    {
+      "course_code": "CS1202",
+      "course_title": "Computer Programming Laboratory",
+      "faculty_group_1": "Dr. J. Arul Valan",
+      "faculty_group_2": "Dr. J. Arul Valan"
+    }
+  ]
+}
+
 
