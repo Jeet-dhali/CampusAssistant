@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "server": "node server.js",
     "start": "node server.js",
-    "build": "vite build"
+    "build": "npm run build"
   },
   "dependencies": {
     "cors": "^2.8.5",
