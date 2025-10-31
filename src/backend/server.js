@@ -13,12 +13,18 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
-//cors configuration
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  if (req.method === 'OPTIONS') {
+  const allowedOrigins = [
+    "http://localhost:5173",
+    "https://campusassistant.onrender.com"
+  ];
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.header("Access-Control-Allow-Origin", origin);
+  }
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  if (req.method === "OPTIONS") {
     return res.sendStatus(200);
   }
   next();
@@ -30,17 +36,22 @@ const openai = new OpenAI({
   apiKey: OPENAI_API_KEY
 });
 
-//read data
-const facultyData = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "profesors.json"), "utf8"));
-const timetable = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "timetable.json"), "utf8"));
-const messTimetable = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "mess.json"), "utf8"));
+// read local data
+const facultyData = JSON.parse(
+  fs.readFileSync(path.join(__dirname, "data", "profesors.json"), "utf8")
+);
+const timetable = JSON.parse(
+  fs.readFileSync(path.join(__dirname, "data", "timetable.json"), "utf8")
+);
+const messTimetable = JSON.parse(
+  fs.readFileSync(path.join(__dirname, "data", "mess.json"), "utf8")
+);
 
-//request
+// req body
 app.post("/ask", async (req, res) => {
   const { question } = req.body;
 
   try {
-
     const now = new Date();
     const daysOfWeek = [
       "Sunday",
@@ -54,44 +65,41 @@ app.post("/ask", async (req, res) => {
     const today = daysOfWeek[now.getDay()];
     const tomorrow = daysOfWeek[(now.getDay() + 1) % 7];
 
-    // format time table
+    // format timetable
     const formattedTimetable = timetable.groups
-  .map(groupData => {
-    const group = groupData.group;
-    const timetableEntries = Object.entries(groupData.timetable)
-      .map(([day, slots]) => {
-        const classes = slots
-          .map(s => `  - ${s.time}: ${s.course}`)
-          .join("\n");
-        return `${day}:\n${classes}`;
+      .map(groupData => {
+        const group = groupData.group;
+        const timetableEntries = Object.entries(groupData.timetable)
+          .map(([day, slots]) => {
+            const classes = slots
+              .map(s => `  - ${s.time}: ${s.course}`)
+              .join("\n");
+            return `${day}:\n${classes}`;
+          })
+          .join("\n\n");
+
+        return `Group ${group} Timetable:\n\n${timetableEntries}`;
+      })
+      .join("\n\n============================\n\n");
+
+    // format faculty data
+    const formattedFaculty = facultyData.faculty
+      .map(f => {
+        return `📘 ${f.course_title} (${f.course_code})\n- Group 1: ${f.faculty_group_1}\n- Group 2: ${f.faculty_group_2}`;
       })
       .join("\n\n");
 
-    return `Group ${group} Timetable:\n\n${timetableEntries}`;
-  })
-  .join("\n\n============================\n\n");
-    //format faculty data 
-    const formattedFaculty = facultyData.faculty
-        .map(f => {
-            return `📘 ${f.course_title} (${f.course_code})\n- Group 1: ${f.faculty_group_1}\n- Group 2: ${f.faculty_group_2}`;
-        })
-        .join("\n\n");
-
-    //format mess data
+    // format mess data
     const formattedMessTimetable = Object.entries(messTimetable)
-  .map(([day, meals]) => {
-    const mealList = Object.entries(meals)
-      .map(([mealType, meal]) => `  - ${mealType}: ${meal}`)
-      .join("\n");
-            return `${day}:\n${mealList}`;
-        })
-        .join("\n\n");
-
-
-
+      .map(([day, meals]) => {
+        const mealList = Object.entries(meals)
+          .map(([mealType, meal]) => `  - ${mealType}: ${meal}`)
+          .join("\n");
+        return `${day}:\n${mealList}`;
+      })
+      .join("\n\n");
 
     const context = `
-
 Current Date: ${now.toDateString()}
 Today is ${today}. Tomorrow is ${tomorrow}.
 
@@ -112,9 +120,9 @@ Now answer the student's question: "${question}"
 
 If the question is about which class they have tomorrow, 
 use today's real day (from your system date) and find the next day in the timetable.
-If tomorrow has no entry, say "No classes tomorrow." If the question is about faculty members use the 
-faculty data to answer the students question. If the question is about mess food time table data then
-use the mess time table data to answer the question.
+If tomorrow has no entry, say "No classes tomorrow." 
+If the question is about faculty members use the faculty data.
+If it's about mess food timetable, use the mess timetable.
 Only use the above data — do not guess.
 `;
 
@@ -133,6 +141,13 @@ Only use the above data — do not guess.
   }
 });
 
-app.listen(5000, () =>
-  console.log(`Server running on port ${5000}`)
-);
+const frontendPath = path.join(__dirname, "../frontend/build");
+if (fs.existsSync(frontendPath)) {
+  app.use(express.static(frontendPath));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(frontendPath, "index.html"));
+  });
+}
+
+const PORT = 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

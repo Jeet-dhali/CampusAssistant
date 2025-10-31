@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "node src/backend/server.js"
+    "server": "node src/backend/server.js",
+    "start": "node src/backend/server.js",
+    "build": "cd src/ && npm install && npm run build"
   },
   "dependencies": {
     "cors": "^2.8.5",
