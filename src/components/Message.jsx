@@ -10,7 +10,7 @@ export default function Message({ message }) {
         {isUser ? (
           <User size={20} color="white" />
         ) : (
-          <Bot size={20} color="#374151" />
+          <Bot size={20} color="#e5e8efff" />
         )}
       </div>
       <div className={`message-bubble ${isUser ? 'message-bubble-user' : 'message-bubble-assistant'}`}>

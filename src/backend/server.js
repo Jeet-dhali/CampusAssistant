@@ -33,6 +33,7 @@ const openai = new OpenAI({
 //read data
 const facultyData = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "profesors.json"), "utf8"));
 const timetable = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "timetable.json"), "utf8"));
+const messTimetable = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "mess.json"), "utf8"));
 
 //request
 app.post("/ask", async (req, res) => {
@@ -76,6 +77,17 @@ app.post("/ask", async (req, res) => {
         })
         .join("\n\n");
 
+    //format mess data
+    const formattedMessTimetable = Object.entries(messTimetable)
+  .map(([day, meals]) => {
+    const mealList = Object.entries(meals)
+      .map(([mealType, meal]) => `  - ${mealType}: ${meal}`)
+      .join("\n");
+            return `${day}:\n${mealList}`;
+        })
+        .join("\n\n");
+
+
 
 
     const context = `
@@ -92,12 +104,17 @@ Here is the Faculty Data:
 
 ${formattedFaculty}
 
+Here is the Mess Time Table Data:
+
+${formattedMessTimetable}
+
 Now answer the student's question: "${question}"
 
 If the question is about which class they have tomorrow, 
 use today's real day (from your system date) and find the next day in the timetable.
 If tomorrow has no entry, say "No classes tomorrow." If the question is about faculty members use the 
-faculty data to answer the students question.
+faculty data to answer the students question. If the question is about mess food time table data then
+use the mess time table data to answer the question.
 Only use the above data — do not guess.
 `;
 
@@ -117,5 +134,5 @@ Only use the above data — do not guess.
 });
 
 app.listen(5000, () =>
-  console.log(`🚀 Server running on port ${5000}`)
+  console.log(`Server running on port ${5000}`)
 );

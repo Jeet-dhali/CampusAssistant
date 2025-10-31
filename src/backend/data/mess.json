@@ -1,0 +1,44 @@
+{
+  "Mon": {
+    "breakfast": "aloo puri + tea",
+    "lunch": "dal + chaval + pakoda + papad",
+    "snacks": "samosa + tea",
+    "dinner": "rice + roti + fish curry / matar paneer"
+  },
+  "Tue": {
+    "breakfast": "chole bhature + tea",
+    "lunch": "rice + dal + French fries + rajma",
+    "snacks": "biscuit + tea",
+    "dinner": "rice + roti + dal + egg curry / veg Manchurian"
+  },
+  "Wed": {
+    "breakfast": "banana / egg + bread + jam / butter + tea",
+    "lunch": "rice + dal + nutrella + chutney",
+    "snacks": "biscuit / samosa + tea",
+    "dinner": "rice + roti + dal + chicken / paneer tikka"
+  },
+  "Thu": {
+    "breakfast": "chowmein + tea",
+    "lunch": "rice + dal + mixed veg + aloo choka",
+    "snacks": "biscuit / samosa + tea",
+    "dinner": "rice + veg pulao + roti + dal + sweets / kheer + mixed veg"
+  },
+  "Fri": {
+    "breakfast": "aloo puri + tea",
+    "lunch": "rice + dal + French fries + rajma",
+    "snacks": "kachori / samosa + tea",
+    "dinner": "rice + roti + dal + fish / veg Manchurian"
+  },
+  "Sat": {
+    "breakfast": "pav bhaji + tea",
+    "lunch": "rice + dal + mixed sabzi + papad",
+    "snacks": "namkeen + tea",
+    "dinner": "rice + roti + dal + egg curry / matar paneer"
+  },
+  "Sun": {
+    "breakfast": "aloo paratha + pickle / sauce + tea",
+    "lunch": "rice + dal + mixed veg + dry pakoda",
+    "snacks": "biscuit / kachori + tea",
+    "dinner": "rice + roti + dal + chilli chicken / chilli paneer"
+  }
+}
