@@ -1,4 +1,3 @@
-// components/LoadingIndicator.jsx
 import React from 'react';
 import { Bot } from 'lucide-react';
 

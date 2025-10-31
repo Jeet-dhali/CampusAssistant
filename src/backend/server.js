@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 
-// Enable CORS for frontend
+//cors configuration
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -30,16 +30,30 @@ const openai = new OpenAI({
   apiKey: OPENAI_API_KEY
 });
 
-// Load local data (you can replace with a DB later)
+//read data
 const facultyData = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "profesors.json"), "utf8"));
 const timetable = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "timetable.json"), "utf8"));
 
-// Route to chat with the assistant
+//request
 app.post("/ask", async (req, res) => {
   const { question } = req.body;
 
   try {
-    // Turn timetable into a readable table-like text
+
+    const now = new Date();
+    const daysOfWeek = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ];
+    const today = daysOfWeek[now.getDay()];
+    const tomorrow = daysOfWeek[(now.getDay() + 1) % 7];
+
+    // format time table
     const formattedTimetable = timetable.groups
   .map(groupData => {
     const group = groupData.group;
@@ -65,6 +79,10 @@ app.post("/ask", async (req, res) => {
 
 
     const context = `
+
+Current Date: ${now.toDateString()}
+Today is ${today}. Tomorrow is ${tomorrow}.
+
 You are a smart AI campus assistant.
 Here is the student's timetable data:
 

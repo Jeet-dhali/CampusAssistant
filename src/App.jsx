@@ -1,4 +1,3 @@
-// App.jsx
 import React, { useState } from 'react';
 import Header from './components/Header';
 import ChatArea from './components/ChatArea';
@@ -21,13 +20,12 @@ export default function App() {
     const userMessage = input.trim();
     setInput('');
     
-    // Add user message
     const newMessages = [...messages, { role: 'user', content: userMessage }];
     setMessages(newMessages);
     setIsLoading(true);
 
     try {
-      // Call the backend API
+      //api call
       const response = await fetch('http://localhost:5000/ask', {
         method: 'POST',
         headers: {

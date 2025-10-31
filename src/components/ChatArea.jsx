@@ -1,4 +1,3 @@
-// components/ChatArea.jsx
 import React, { useEffect, useRef } from 'react';
 import Message from './Message';
 import LoadingIndicator from './loadingIndicator';
