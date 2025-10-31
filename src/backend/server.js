@@ -40,15 +40,21 @@ app.post("/ask", async (req, res) => {
 
   try {
     // Turn timetable into a readable table-like text
-    const formattedTimetable = Object.entries(timetable.timetable)
+    const formattedTimetable = timetable.groups
+  .map(groupData => {
+    const group = groupData.group;
+    const timetableEntries = Object.entries(groupData.timetable)
       .map(([day, slots]) => {
         const classes = slots
-          .map(s => `- ${s.time}: ${s.course}`)
+          .map(s => `  - ${s.time}: ${s.course}`)
           .join("\n");
         return `${day}:\n${classes}`;
       })
       .join("\n\n");
 
+    return `Group ${group} Timetable:\n\n${timetableEntries}`;
+  })
+  .join("\n\n============================\n\n");
     //format faculty data 
     const formattedFaculty = facultyData.faculty
         .map(f => {

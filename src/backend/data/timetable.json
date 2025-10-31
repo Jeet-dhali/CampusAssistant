@@ -1,81 +1,162 @@
 {
-  "group": "2",
-  "timetable": {
-    "Monday": [
-      {
-        "time": "8:30 – 4:30",
-        "course": "CS1202 (Computer Programming Laboratory)"
+  "groups": [
+    {
+      "group": "1",
+      "timetable": {
+        "Monday": [
+          {
+            "time": "8:30 – 4:30",
+            "course": "CS1202 (Computer Programming Laboratory)"
+          }
+        ],
+        "Tuesday": [
+          {
+            "time": "8:30 – 9:20",
+            "course": "CE1201 (Engineering Graphics)"
+          },
+          {
+            "time": "9:20 – 10:10",
+            "course": "SH1901 (Professional English)"
+          },
+          {
+            "time": "10:30 – 11:20",
+            "course": "SH1101 (Engineering Chemistry)"
+          },
+          {
+            "time": "11:20 – 12:10",
+            "course": "CS1201 (Introduction to Computer Programming)"
+          },
+          {
+            "time": "1:10 – 2:00",
+            "course": "SH1102 (Engineering Physics)"
+          },
+          {
+            "time": "2:00 – 4:30",
+            "course": "SH1103 / ME1201 / CE1201 (Lab slot rotation)"
+          }
+        ],
+        "Wednesday": [
+          {
+            "time": "8:30 – 9:20",
+            "course": "SH1102 (Engineering Physics)"
+          },
+          {
+            "time": "9:20 – 10:10",
+            "course": "SH1901 (Professional English)"
+          },
+          {
+            "time": "2:00 – 4:30",
+            "course": "SH1103 / ME1201 / CE1201 (Lab slot rotation)"
+          }
+        ],
+        "Thursday": [
+          {
+            "time": "8:30 – 10:10",
+            "course": "SH1102 (Engineering Physics)"
+          },
+          {
+            "time": "10:10 – 12:10",
+            "course": "CS1201 (Introduction to Computer Programming)"
+          },
+          {
+            "time": "2:00 – 4:30",
+            "course": "SH1103 / ME1201 / CE1201 (Lab slot rotation)"
+          }
+        ],
+        "Friday": [
+          {
+            "time": "9:20 – 10:10",
+            "course": "SH1901 (Professional English)"
+          },
+          {
+            "time": "10:10 – 12:10",
+            "course": "SH1101 (Engineering Chemistry)"
+          },
+          {
+            "time": "2:00 – 4:30",
+            "course": "SH1103 / ME1201 / CE1201 (Lab slot rotation)"
+          }
+        ]
       }
-    ],
-    "Tuesday": [
-      {
-        "time": "8:30 – 9:20",
-        "course": "CE1201 (Engineering Graphics)"
-      },
-      {
-        "time": "9:20 – 10:10",
-        "course": "SH1901 (Professional English)"
-      },
-      {
-        "time": "10:30 – 11:20",
-        "course": "SH1101 (Engineering Chemistry)"
-      },
-      {
-        "time": "1:10 – 2:00",
-        "course": "SH1102 (Engineering Physics)"
-      },
-      {
-        "time": "2:00 – 4:30",
-        "course": "SH1103 / ME1201 / CE1201 (Lab slot rotation)"
+    },
+    {
+      "group": "2",
+      "timetable": {
+        "Monday": [
+          {
+            "time": "8:30 – 4:30",
+            "course": "CS1202 (Computer Programming Laboratory)"
+          }
+        ],
+        "Tuesday": [
+          {
+            "time": "8:30 – 9:20",
+            "course": "CE1201 (Engineering Graphics)"
+          },
+          {
+            "time": "9:20 – 10:10",
+            "course": "SH1901 (Professional English)"
+          },
+          {
+            "time": "10:30 – 11:20",
+            "course": "SH1101 (Engineering Chemistry)"
+          },
+          {
+            "time": "1:10 – 2:00",
+            "course": "SH1102 (Engineering Physics)"
+          },
+          {
+            "time": "2:00 – 4:30",
+            "course": "SH1103 / ME1201 / CE1201 (Lab slot rotation)"
+          }
+        ],
+        "Wednesday": [
+          {
+            "time": "8:30 – 9:20",
+            "course": "SH1102 (Engineering Physics)"
+          },
+          {
+            "time": "9:20 – 10:10",
+            "course": "SH1901 (Professional English)"
+          },
+          {
+            "time": "10:30 – 12:10",
+            "course": "CS1201 (Introduction to Computer Programming)"
+          },
+          {
+            "time": "2:00 – 4:30",
+            "course": "SH1103 / ME1201 / CE1201 (Lab slot rotation)"
+          }
+        ],
+        "Thursday": [
+          {
+            "time": "8:30 – 10:10",
+            "course": "SH1102 (Engineering Physics)"
+          },
+          {
+            "time": "2:00 – 4:30",
+            "course": "SH1103 / ME1201 / CE1201 (Lab slot rotation)"
+          }
+        ],
+        "Friday": [
+          {
+            "time": "8:30 – 9:20",
+            "course": "CS1201 (Introduction to Computer Programming)"
+          },
+          {
+            "time": "9:20 – 10:10",
+            "course": "SH1901 (Professional English)"
+          },
+          {
+            "time": "10:10 – 12:10",
+            "course": "SH1101 (Engineering Chemistry)"
+          },
+          {
+            "time": "2:00 – 4:30",
+            "course": "SH1103 / ME1201 / CE1201 (Lab slot rotation)"
+          }
+        ]
       }
-    ],
-    "Wednesday": [
-      {
-        "time": "8:30 – 9:20",
-        "course": "SH1102 (Engineering Physics)"
-      },
-      {
-        "time": "9:20 – 10:10",
-        "course": "SH1901 (Professional English)"
-      },
-      {
-        "time": "10:30 – 12:10",
-        "course": "CS1201 (Introduction to Computer Programming)"
-      },
-      {
-        "time": "2:00 – 4:30",
-        "course": "SH1103 / ME1201 / CE1201 (Lab slot rotation)"
-      }
-    ],
-    "Thursday": [
-      {
-        "time": "8:30 – 10:10",
-        "course": "SH1102 (Engineering Physics)"
-      },
-      {
-        "time": "2:00 – 4:30",
-        "course": "SH1103 / ME1201 / CE1201 (Lab slot rotation)"
-      }
-    ],
-    "Friday": [
-      {
-        "time": "8:30 – 9:20",
-        "course": "CS1201 (Introduction to Computer Programming)"
-      },
-      {
-        "time": "9:20 – 10:10",
-        "course": "SH1901 (Professional English)"
-      },
-      {
-        "time": "10:10 – 12:10",
-        "course": "SH1101 (Engineering Chemistry)"
-      },
-      {
-        "time": "2:00 – 4:30",
-        "course": "SH1103 / ME1201 / CE1201 (Lab slot rotation)"
-      }
-    ]
-  }
+    }
+  ]
 }
-
-
