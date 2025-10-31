@@ -1,2 +1,2 @@
-export const OPENAI_API_KEY = "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";
+export const OPENAI_API_KEY = "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";
 export const PORT = 5000;

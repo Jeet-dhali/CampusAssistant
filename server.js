@@ -36,16 +36,10 @@ const openai = new OpenAI({
   apiKey: OPENAI_API_KEY
 });
 
-// read local data
-const facultyData = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "data", "profesors.json"), "utf8")
-);
-const timetable = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "data", "timetable.json"), "utf8")
-);
-const messTimetable = JSON.parse(
-  fs.readFileSync(path.join(__dirname, "data", "mess.json"), "utf8")
-);
+// read data
+const facultyData = JSON.parse(fs.readFileSync(path.join(__dirname, 'src/backend/data/profesors.json'), 'utf8'));
+const timetable = JSON.parse(fs.readFileSync(path.join(__dirname, 'src/backend/data/timetable.json'), 'utf8'));
+const messTimetable = JSON.parse(fs.readFileSync(path.join(__dirname, 'src/backend/data/mess.json'), 'utf8'));
 
 // req body
 app.post("/ask", async (req, res) => {
